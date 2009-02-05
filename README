@@ -1,0 +1,31 @@
+HasPages
+========
+
+WORK IN PROGESS!! There may be significant changes.
+
+Simple Engine to allow Rails app to have "static" pages rendered in a layout.
+
+
+Example
+=======
+
+You have a set of semi static pages that should be served if no other routes are matched.
+
+For example, given the following request /about/company, this will look in app/views/pages/about/company
+
+The page will be rendered in the application layout by default, but will use an "about" layout if it exists.
+
+This also provides page caching by default of these pages so Rails doesn't get involved on further requests to the same path.
+
+Eventually, a macro of has_pages(options) can be called from your application controller to customize the behaviour of the plugin.
+
+Some macro options could include: 
+  
+  * Caching On/Off
+  * Cache Directory
+  * Alternate Layout(s)
+  * Path Prefix
+  * Others?
+
+
+Copyright (c) 2009 Aaron Glenn, released under the MIT license
