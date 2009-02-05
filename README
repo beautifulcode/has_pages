@@ -5,6 +5,14 @@ WORK IN PROGESS!! There may be significant changes.
 
 Simple Engine to allow Rails app to have "static" pages rendered in a layout.
 
+Requirements
+============
+Rails 2.3 or Rails Engines Plugin
+
+Installation
+============
+script/plugin install git://github.com/beautifulcode/has_pages.git
+
 
 Example
 =======
