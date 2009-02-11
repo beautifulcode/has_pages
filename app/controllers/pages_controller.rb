@@ -4,7 +4,9 @@ class PagesController < ApplicationController
   
   # Last Resort For Page = Static Page view
   def method_missing(method)
-    render :template => '/pages/'+params[:path].join('/'), :use_layout => true if params[:path]
+    view_path = params[:path].join('/')
+    view_path = 'index' if view_path.blank?
+    render :template => '/pages/'+view_path
     cache_page
   end
   
@@ -14,7 +16,7 @@ class PagesController < ApplicationController
     render :template => 'errors/404', :layout => 'errors'
   end
   
-  protected
+  protected  
   
     # Runs down the path (from end to start) looking for layout file
     def determine_layout 
