@@ -1,7 +1,9 @@
+<% @error_type = 'Page Not Found (404)' %>
 <h1>We're Sorry...</h1>
 
 <p>We seem to have lost that page! You'll probably be able to find the information you need by using the menu at the top of this page or by following one of these links:</p>
 
 <div id="exception">
   <%= @exception.to_yaml %>
+  <%= params.to_yaml %>
 </div>

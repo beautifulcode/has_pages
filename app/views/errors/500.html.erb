@@ -1,0 +1,9 @@
+<% @error_type = 'Server Error (500)' %>
+<h1>Uh Oh...</h1>
+
+<p>Something has gone horribly wrong! Servers are melting, monkeys are escaping!</p>
+
+<div id="exception">
+  <%= @exception.to_yaml %>
+  <%= params.to_yaml %>
+</div>
