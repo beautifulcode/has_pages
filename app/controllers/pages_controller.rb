@@ -6,7 +6,7 @@ class PagesController < ApplicationController
   def method_missing(method)
     page_path = params[:path].join('/')
     page_path = 'index' if page_path.blank?
-    render :template => '/pages/'+page_path
+    render :template => "pages/#{page_path}"
     cache_page
   end
   
@@ -30,10 +30,10 @@ class PagesController < ApplicationController
           @page_layout = 'home' if File.exist?(RAILS_ROOT+'/app/views/layouts/home.html.erb')
         else
           params[:path].reverse.each do |segment|
-            @alternate_layout ||= segment if File.exist?(RAILS_ROOT+'/app/views/layouts/'+segment+'.html.haml')
-            @alternate_layout ||= segment if File.exist?(RAILS_ROOT+'/app/views/layouts/'+segment+'.html.erb')
+            @alternate_layout = segment if File.exist?(RAILS_ROOT+'/app/views/layouts/'+segment+'.html.haml')
+            @alternate_layout = segment if File.exist?(RAILS_ROOT+'/app/views/layouts/'+segment+'.html.erb')
           end
-          @page_layout = @alternate_layout.to_s 
+          @page_layout = @alternate_layout
         end
         @page_layout || 'application'
     end
