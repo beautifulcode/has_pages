@@ -1,21 +1,21 @@
 HasPages
 ========
 
-WORK IN PROGESS!! There may be significant changes.
-
-Simple Engine to allow Rails app to have "static" pages rendered in a layout.
+Simple Gem to allow Rails app to have "static" pages rendered in a layout.
 
 Requirements
 ============
-Rails 2.3 or Rails Engines Plugin
+Rails 4
 
 Installation
 ============
-script/plugin install git://github.com/beautifulcode/has_pages.git
+Gemfile:
+
+gem 'has_pages', git: "https://github.com/beautifulcode/has_pages.git
 
 
-Example
-=======
+Example Use
+============
 
 You have a set of semi static pages that should be served if no other routes are matched.
 
@@ -27,8 +27,8 @@ This also provides page caching by default of these pages so Rails doesn't get i
 
 Eventually, a macro of has_pages(options) can be called from your application controller to customize the behaviour of the plugin.
 
-Some macro options could include: 
-  
+Some macro options could include:
+
   * Caching On/Off
   * Cache Directory
   * Alternate Layout(s)
@@ -36,4 +36,4 @@ Some macro options could include:
   * Others?
 
 
-Copyright (c) 2009 Aaron Glenn, released under the MIT license
+Copyright (c) 2015 Aaron Glenn, released under the MIT license
