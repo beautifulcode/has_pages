@@ -1,23 +1,2 @@
-require 'rake'
-require 'rake/testtask'
-require 'rake/rdoctask'
+require "bundler/gem_tasks"
 
-desc 'Default: run unit tests.'
-task :default => :test
-
-desc 'Test the has_pages plugin.'
-Rake::TestTask.new(:test) do |t|
-  t.libs << 'lib'
-  t.libs << 'test'
-  t.pattern = 'test/**/*_test.rb'
-  t.verbose = true
-end
-
-desc 'Generate documentation for the has_pages plugin.'
-Rake::RDocTask.new(:rdoc) do |rdoc|
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title    = 'HasPages'
-  rdoc.options << '--line-numbers' << '--inline-source'
-  rdoc.rdoc_files.include('README')
-  rdoc.rdoc_files.include('lib/**/*.rb')
-end
