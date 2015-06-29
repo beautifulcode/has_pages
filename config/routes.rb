@@ -1,5 +1,5 @@
-ActionController::Routing::Routes.draw do |map|
+Rails.application.routes.draw do
 
-  map.connect '*path', :controller => 'pages', :action => 'static'
+  get '*path', to: 'pages#static'
 
 end

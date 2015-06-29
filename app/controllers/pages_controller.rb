@@ -3,11 +3,11 @@ class PagesController < ApplicationController
   layout :determine_layout
 
   # Last Resort For Page = Static Page view
-  def method_missing(method)
-    page_path = params[:path].join('/')
+  def static
+    page_path = params[:path]
     page_path = 'index' if page_path.blank?
-    render :template => "pages/#{page_path}"
-    cache_page
+    render "pages/#{page_path}"
+    #cache_page
   end
 
   # Will Rescue Errors like 404/500
@@ -26,12 +26,12 @@ class PagesController < ApplicationController
     # Runs down the path (from end to start) looking for layout file
     def determine_layout
         if params[:path].empty?
-          @page_layout = 'home' if File.exist?(RAILS_ROOT+'/app/views/layouts/home.html.haml')
-          @page_layout = 'home' if File.exist?(RAILS_ROOT+'/app/views/layouts/home.html.erb')
+          @page_layout = 'home' if File.exist?(Rails.root+'/app/views/layouts/home.html.haml')
+          @page_layout = 'home' if File.exist?(Rails.root+'/app/views/layouts/home.html.erb')
         else
-          params[:path].reverse.each do |segment|
-            @alternate_layout = segment if File.exist?(RAILS_ROOT+'/app/views/layouts/'+segment+'.html.haml')
-            @alternate_layout = segment if File.exist?(RAILS_ROOT+'/app/views/layouts/'+segment+'.html.erb')
+          params[:path].split('/').reverse.each do |segment|
+            @alternate_layout = segment if File.exist?(Rails.root+'/app/views/layouts/'+segment+'.html.haml')
+            @alternate_layout = segment if File.exist?(Rails.root+'/app/views/layouts/'+segment+'.html.erb')
           end
           @page_layout = @alternate_layout
         end
