@@ -1,5 +1,4 @@
 ### Simple Static Pages in Rails
-
 For when you want to have some *static-ish* pages rendered with minimal configuration within the Rails stack, with sensible defaults including caching, asset pipeline, and nice URLs.
 
 ### Requirements
