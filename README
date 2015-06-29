@@ -1,27 +1,28 @@
-HasPages
-========
+### Simple Static Pages in Rails
 
-Simple Gem to allow Rails app to have "static" pages rendered in a layout.
+For when you want to have some *static-ish* pages rendered with minimal configuration within the Rails stack, with sensible defaults including caching, asset pipeline, and nice URLs.
 
-Requirements
+### Requirements
 ============
 Rails 4
 
-Installation
-============
-Gemfile:
+### Installation
+Packaged as a gem, so the usual bundler procedure applies
 
-gem 'has_pages', git: "https://github.com/beautifulcode/has_pages.git
+```
+$ cd your_repo_root/repo_name
+$ gem 'has_pages', git: "https://github.com/beautifulcode/has_pages.git
+$ bundle
+```
 
-
-Example Use
+### Example Use
 ============
 
 You have a set of semi static pages that should be served if no other routes are matched.
 
-For example, given the following request /about/company, this will look in app/views/pages/about/company
+For example, given the following request `/about/company`, this will look in `app/views/pages/about/company`
 
-The page will be rendered in the application layout by default, but will use an "about" layout if it exists.
+The page will be rendered in the application layout by default, but will use an `about` layout if it exists.
 
 This also provides page caching by default of these pages so Rails doesn't get involved on further requests to the same path.
 
@@ -33,7 +34,6 @@ Some macro options could include:
   * Cache Directory
   * Alternate Layout(s)
   * Path Prefix
-  * Others?
 
 
 Copyright (c) 2015 Aaron Glenn, released under the MIT license
